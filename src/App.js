@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Irek is the goat. Throat goat.
         </a>
       </header>
     </div>
