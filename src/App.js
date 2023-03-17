@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Irek is the goat. Throat goat.
+          huyyyyyyyy pizda skovoroda
         </a>
       </header>
     </div>
