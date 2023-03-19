@@ -5,6 +5,7 @@ import Student from './pages/Student.jsx';
 import firebase from './firebase';
 import Navbar from './navbar/Navbar';
 import Contact from './pages/Contact';
+import Tutor from './pages/Tutor';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element = {<Home/>} />
           <Route path="/student"  element = {<Student/>} />
           <Route path="/contact"  element = {<Contact/>} />
+          <Route path="/tutor"  element = {<Tutor/>} />
         </Routes>
       </BrowserRouter>
 
