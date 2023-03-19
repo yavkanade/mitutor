@@ -12,6 +12,8 @@ function App() {
   const [addStudentCourses, setStudentCourses] = useState([]);
   const [deleteTutorName, setDeleteTutorName] = useState('');
   const [deleteTutorEmail, setDeleteTutorEmail] = useState('');
+  const [deleteStudentName, setDeleteStudentName] = useState('');
+  const [deleteStudentEmail, setDeleteStudentEmail] = useState('');
 
   useEffect(() => {
     firebase.firestore().collection('Students').onSnapshot((querySnapshot) => {
@@ -98,6 +100,22 @@ function App() {
         console.error('Error deleting tutor: ', error);
       });
   }
+
+  function deleteStudent() {
+    firebase.firestore().collection('Students')
+      .where('name', '==', deleteStudentName)
+      .where('email', '==', deleteStudentEmail)
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          doc.ref.delete();
+          console.log('Student deleted successfully!');
+        });
+      })
+      .catch((error) => {
+        console.error('Error deleting tutor: ', error);
+      });
+  }
   
 
   return (
@@ -121,6 +139,22 @@ function App() {
 
 
         <div>
+          <h1>Delete Student</h1>
+          <form onSubmit={(event) => { event.preventDefault(); deleteStudent(); }}>
+            <label>Name:</label>
+            <input type="text" value={deleteStudentName} onChange={(event) => setDeleteStudentName(event.target.value)} />
+            <br />
+            <label>Email:</label>
+            <input type="text" value={deleteStudentEmail} onChange={(event) => setDeleteStudentEmail(event.target.value)} />
+            <br />
+            <button type="submit">Delete Student</button>
+          </form>
+        </div>
+
+       
+
+
+        <div>
           <h1>Add tutors</h1>
           <form onSubmit={(event) => { event.preventDefault(); addTutor(); }}>
             <label>Name:</label>
@@ -135,31 +169,7 @@ function App() {
             <button type="submit">Add Tutors</button>
           </form>
         </div>
-    
-        <div>
-          <h1>Students</h1>
-          {students.map((student) => (
-            <div key={student.name}>
-              <h2>{student.name}</h2>
-              <h2>{student.name + " wants to learn " + student.Courses}</h2>
 
-            </div>
-          ))}
-        </div>
-    
-        
-    
-      
-
-        <div>
-          <h1>Tutors</h1>
-          {tutors.map((tutor) => (
-            <div key={tutor.name}>
-              <h2>{tutor.name + " knows " + tutor.Courses}</h2>
-            </div>
-          ))}
-        </div>
-    
         <div>
           <h1>Delete Tutor</h1>
           <form onSubmit={(event) => { event.preventDefault(); deleteTutor(); }}>
@@ -172,6 +182,30 @@ function App() {
             <button type="submit">Delete Tutor</button>
           </form>
         </div>
+
+
+    
+        <div>
+          <h1>Students</h1>
+          {students.map((student) => (
+            <div key={student.name}>
+              <h2>{student.name + " ," + student.email + " wants to learn " + student.Courses}</h2>
+
+            </div>
+          ))}
+        </div>
+    
+      
+
+        <div>
+          <h1>Tutors</h1>
+          {tutors.map((tutor) => (
+            <div key={tutor.name}>
+              <h2>{tutor.name +" ," + tutor.email + " knows " + tutor.Courses}</h2>
+            </div>
+          ))}
+        </div>
+    
       </div>
     );
     
