@@ -14,6 +14,8 @@ function App() {
   const [deleteTutorEmail, setDeleteTutorEmail] = useState('');
   const [deleteStudentName, setDeleteStudentName] = useState('');
   const [deleteStudentEmail, setDeleteStudentEmail] = useState('');
+  const [matchedPairs, setMatchedPairs] = useState([]);
+
 
   useEffect(() => {
     firebase.firestore().collection('Students').onSnapshot((querySnapshot) => {
@@ -34,6 +36,25 @@ function App() {
       setTutors(items);
     });
   }, []);
+
+  useEffect(() => {
+    function displayMatches(students, tutors) {
+      const matches = [];
+    
+      students.forEach((student) => {
+        student.Courses.forEach((course) => {
+          const matchedTutors = tutors.filter((tutor) => tutor.Courses.includes(course));
+          matchedTutors.forEach((tutor) => {
+            matches.push({ student: student.name, tutor: tutor.name });
+          });
+        });
+      });
+    
+      setMatchedPairs(matches);
+    }
+
+    displayMatches(students, tutors);
+  }, [students, tutors]);
 
 
   function addStudent() {
@@ -190,13 +211,11 @@ function App() {
           {students.map((student) => (
             <div key={student.name}>
               <h2>{student.name + " ," + student.email + " wants to learn " + student.Courses}</h2>
-
             </div>
           ))}
         </div>
     
       
-
         <div>
           <h1>Tutors</h1>
           {tutors.map((tutor) => (
@@ -204,6 +223,25 @@ function App() {
               <h2>{tutor.name +" ," + tutor.email + " knows " + tutor.Courses}</h2>
             </div>
           ))}
+        </div>
+
+
+        <div>
+          <h1>Matches</h1>
+          {matchedPairs.length > 0 ? (
+        <div>
+          <h2>Matched Student-Tutor Pairs:</h2>
+          <ul>
+            {matchedPairs.map((pair, index) => (
+              <h2 key={index}>
+                {pair.student} matched with {pair.tutor}
+              </h2>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p>No matches found</p>
+      )}
         </div>
     
       </div>
