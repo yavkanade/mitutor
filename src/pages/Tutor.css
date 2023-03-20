@@ -1,0 +1,81 @@
+/* Container styles */
+.tutor-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 8rem;
+  }
+  
+  
+  /* Heading styles */
+  .tutor-heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    margin-right: 5rem;
+  }
+  
+  /* Form styles */
+  .tutor-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-right: 5rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  
+  .tutor-form label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tutor-form input,
+  .tutor-form textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+  
+  .tutor-form button[type="submit"] {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .tutor-form button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Tutors list styles */
+  .tutors-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tutor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    width: 80%;
+  }
+  
+  .tutor-item h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../firebase';
+import "./Student.css"
 
 
 export default function Student(){
@@ -68,11 +69,10 @@ export default function Student(){
   
 
   return (
-      <div>
-
+      <div className='student-container'>
         <div>
-          <h1>Add Student</h1>
-          <form onSubmit={(event) => { event.preventDefault(); addStudent(); }}>
+          <h1 className='student-heading'>Add Student</h1>
+          <form className="student-form" onSubmit={(event) => { event.preventDefault(); addStudent(); }}>
             <label>Name:</label>
             <input type="text" value={addStudentName} onChange={(event) => setStudentName(event.target.value)} />
             <br />
@@ -86,10 +86,20 @@ export default function Student(){
           </form>
         </div>
 
+             
+        <div className='student-list'>
+          <h1>Students</h1>
+          {students.map((student) => (
+            <div className="student-item" key={student.name}>
+              <h2>{student.name + " ," + student.email + " wants to learn " + student.Courses}</h2>
+            </div>
+          ))}
+        </div>
+
 
         <div>
-          <h1>Delete Student</h1>
-          <form onSubmit={(event) => { event.preventDefault(); deleteStudent(); }}>
+          <h1 className="student-heading">Delete Student</h1>
+          <form className="student-form" onSubmit={(event) => { event.preventDefault(); deleteStudent(); }}>
             <label>Name:</label>
             <input type="text" value={deleteStudentName} onChange={(event) => setDeleteStudentName(event.target.value)} />
             <br />
@@ -102,15 +112,7 @@ export default function Student(){
 
 
 
-        
-        <div>
-          <h1>Students</h1>
-          {students.map((student) => (
-            <div key={student.name}>
-              <h2>{student.name + " ," + student.email + " wants to learn " + student.Courses}</h2>
-            </div>
-          ))}
-        </div>
+   
     
     
       </div>

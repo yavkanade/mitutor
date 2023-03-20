@@ -17,7 +17,7 @@ function MainSection(){
         <div className='hero-container'>
         <video src={fall} autoPlay loop muted />
         <h1>MiTutor</h1>
-        <p>Come On and Help Out Today!</p>
+        <p>The student, becomes the teacher</p>
     </div>
     )
   }

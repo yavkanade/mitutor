@@ -27,24 +27,25 @@ export default function Match(){
     });
   }, []);
 
-  useEffect(() => {
-    function displayMatches(students, tutors) {
-      const matches = [];
-    
-      students.forEach((student) => {
-        student.Courses.forEach((course) => {
-          const matchedTutors = tutors.filter((tutor) => tutor.Courses.includes(course));
-          matchedTutors.forEach((tutor) => {
-            matches.push({ student: student.name, tutor: tutor.name });
-          });
+useEffect(() => {
+  function displayMatches(students, tutors) {
+    const matches = [];
+
+    students.forEach((student) => {
+      student.Courses.forEach((course) => {
+        const matchedTutors = tutors.filter((tutor) => tutor.Courses.includes(course));
+        matchedTutors.forEach((tutor) => {
+          matches.push({ student: student.name, tutor: tutor.name });
         });
       });
-    
-      setMatchedPairs(matches);
-    }
+    });
 
-    displayMatches(students, tutors);
-  }, [students, tutors]);
+    setMatchedPairs(matches);
+  }
+
+  displayMatches(students, tutors);
+}, [students, tutors]);
+
 
   return (
     <div className="match-container">

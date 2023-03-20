@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../firebase';
+import "./Tutor.css";
+
 
 
 export default function Tutor(){
@@ -67,12 +69,10 @@ export default function Tutor(){
   
 
   return (
-      <div>
-
-
+      <div className='tutor-container'>
         <div>
-          <h1>Add tutors</h1>
-          <form onSubmit={(event) => { event.preventDefault(); addTutor(); }}>
+          <h1 className='tutor-heading'>Add tutors</h1>
+          <form className="tutor-form" onSubmit={(event) => { event.preventDefault(); addTutor(); }}>
             <label>Name:</label>
             <input type="text" value={addTutorName} onChange={(event) => setAddTutorName(event.target.value)} />
             <br />
@@ -86,9 +86,18 @@ export default function Tutor(){
           </form>
         </div>
 
+        <div className='tutors-list'>
+          <h1>Tutors</h1>
+          {tutors.map((tutor) => (
+            <div className="tutor-item" key={tutor.name}>
+              <h2>{tutor.name +" ," + tutor.email + " knows " + tutor.Courses}</h2>
+            </div>
+          ))}
+        </div>
+        
         <div>
-          <h1>Delete Tutor</h1>
-          <form onSubmit={(event) => { event.preventDefault(); deleteTutor(); }}>
+          <h1 className='tutor-heading'>Delete Tutor</h1>
+          <form className="tutor-form" onSubmit={(event) => { event.preventDefault(); deleteTutor(); }}>
             <label>Name:</label>
             <input type="text" value={deleteTutorName} onChange={(event) => setDeleteTutorName(event.target.value)} />
             <br />
@@ -102,14 +111,7 @@ export default function Tutor(){
 
 
       
-        <div>
-          <h1>Tutors</h1>
-          {tutors.map((tutor) => (
-            <div key={tutor.name}>
-              <h2>{tutor.name +" ," + tutor.email + " knows " + tutor.Courses}</h2>
-            </div>
-          ))}
-        </div>
+      
 
      
     
