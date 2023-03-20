@@ -6,6 +6,8 @@ import firebase from './firebase';
 import Navbar from './navbar/Navbar';
 import Contact from './pages/Contact';
 import Tutor from './pages/Tutor';
+import Match from './pages/Match';
+import Login from './authentication/login';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/student"  element = {<Student/>} />
           <Route path="/contact"  element = {<Contact/>} />
           <Route path="/tutor"  element = {<Tutor/>} />
+          <Route path="/match"  element = {<Match/>} />
+          <Route path="/login"  element = {<Login/>} />
         </Routes>
       </BrowserRouter>
 

@@ -9,7 +9,9 @@ function Navbar() {
         <li><a href="/">Home</a></li>
         <li><a href="/student">Student</a></li>
         <li><a href="/tutor">Tutor</a></li>
+        <li><a href="/match">Matches</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Login</a></li>
 
       </ul>
     </nav>
