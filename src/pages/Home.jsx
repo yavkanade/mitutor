@@ -4,17 +4,10 @@ import fall from "../assets/fall.mp4";
 
 function Home() {
   return (
-    <>
-      <MainSection />
-    </>
-  );
-}
-
-function MainSection() {
-  return (
     <div className="hero-container">
-      <h1>MiTutor</h1>
-      <p>The student, becomes the teacher</p>
+      <div className="search-container">
+        <input type="text" />
+      </div>
     </div>
   );
 }

@@ -14,8 +14,8 @@ import Sidebar from "./components/Sidebar";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Sidebar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/student" element={<Student />} />
