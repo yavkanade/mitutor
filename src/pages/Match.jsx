@@ -1,51 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import firebase from '../firebase';
-import './Match.css';
+import React, { useState, useEffect } from "react";
+import firebase from "../firebase";
+import "../styles/Match.css";
 
-export default function Match(){
+export default function Match() {
   const [students, setStudents] = useState([]);
   const [tutors, setTutors] = useState([]);
   const [matchedPairs, setMatchedPairs] = useState([]);
 
   useEffect(() => {
-    firebase.firestore().collection('Students').onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
+    firebase
+      .firestore()
+      .collection("Students")
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        setStudents(items);
       });
-      setStudents(items);
-    });
   }, []);
 
   useEffect(() => {
-    firebase.firestore().collection('Tutors').onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
+    firebase
+      .firestore()
+      .collection("Tutors")
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        setTutors(items);
       });
-      setTutors(items);
-    });
   }, []);
 
-useEffect(() => {
-  function displayMatches(students, tutors) {
-    const matches = [];
+  useEffect(() => {
+    function displayMatches(students, tutors) {
+      const matches = [];
 
-    students.forEach((student) => {
-      student.Courses.forEach((course) => {
-        const matchedTutors = tutors.filter((tutor) => tutor.Courses.includes(course));
-        matchedTutors.forEach((tutor) => {
-          matches.push({ student: student.name, tutor: tutor.name });
+      students.forEach((student) => {
+        student.Courses.forEach((course) => {
+          const matchedTutors = tutors.filter((tutor) =>
+            tutor.Courses.includes(course)
+          );
+          matchedTutors.forEach((tutor) => {
+            matches.push({ student: student.name, tutor: tutor.name });
+          });
         });
       });
-    });
 
-    setMatchedPairs(matches);
-  }
+      setMatchedPairs(matches);
+    }
 
-  displayMatches(students, tutors);
-}, [students, tutors]);
-
+    displayMatches(students, tutors);
+  }, [students, tutors]);
 
   return (
     <div className="match-container">
@@ -67,5 +74,5 @@ useEffect(() => {
         )}
       </div>
     </div>
-  ); 
+  );
 }

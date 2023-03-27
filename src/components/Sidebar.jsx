@@ -1,0 +1,25 @@
+import React from "react";
+import "../styles/Sidebar.css";
+
+function Sidebar() {
+  return (
+    <aside className="sidebar">
+      <ul>
+        <li>
+          <a href="/settings">Settings</a>
+        </li>
+        <li>
+          <a href="/my-courses">My Courses</a>
+        </li>
+        <li>
+          <a href="/messages">Messages</a>
+        </li>
+        <li>
+          <a href="/about">About</a>
+        </li>
+      </ul>
+    </aside>
+  );
+}
+
+export default Sidebar;
