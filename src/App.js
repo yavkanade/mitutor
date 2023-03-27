@@ -10,6 +10,7 @@ import Match from "./pages/Match";
 import Login from "./authentication/login";
 import UserHomePage from "./pages/UserHomePage";
 import Sidebar from "./components/Sidebar";
+import Courses from "./pages/Courses";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/match" element={<Match />} />
         <Route path="/login" element={<Login />} />
         <Route path="/UserHomePage" element={<UserHomePage />} />
+        <Route path="/Courses" element={<Courses />} />
       </Routes>
     </BrowserRouter>
   );

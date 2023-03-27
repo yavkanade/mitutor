@@ -9,7 +9,7 @@ function Sidebar() {
           <a href="/settings">Settings</a>
         </li>
         <li>
-          <a href="/my-courses">My Courses</a>
+          <a href="/Courses">My Courses</a>
         </li>
         <li>
           <a href="/messages">Messages</a>
