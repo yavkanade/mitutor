@@ -1,9 +1,11 @@
 .course-page {
-  height: 30vh;
-  width: 40%;
+  height: 40vh;
+  width: 60%;
   background-color: #ffffff95;
   flex-direction: column;
-  align-content: right;
+  align-content: center;
+  margin-top: 11.7%;
+  margin-left: 20%;
 }
 
 .course-page > input {
@@ -51,4 +53,15 @@
   background-color: transparent;
   display: inline-block;
   margin-top: 1px;
+}
+
+.course-page-container {
+  /* background: url('image/img-home.jpg') center center/cover
+    no-repeat; */
+  height: 100vw;
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+
+  background-color: #ae77ed;
 }
