@@ -88,6 +88,7 @@ export default function Student() {
           <br />
           <label>Email:</label>
           <input
+            x
             type="text"
             value={addStudentEmail}
             onChange={(event) => setStudentEmail(event.target.value)}

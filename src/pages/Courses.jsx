@@ -87,10 +87,34 @@ function Courses() {
 
         <div className="course-container">
           <div className="smoll-box"> Course</div>
-          <input type="text" />
-          <div className="smoll-box"> Teacher</div>
-          <input type="text" />
-          <button>add</button>
+          <input
+            type="text"
+            value={addCourseName}
+            onChange={(event) => setCourseName(event.target.value)}
+          />
+          <div className="smoll-box">Faculty</div>
+          <input
+            type="text"
+            value={addFaculty}
+            onChange={(event) => setFaculty(event.target.value)}
+          />
+        </div>
+        <div className="course-container">
+          <div className="smoll-box"> Description</div>
+          <input
+            type="text"
+            value={addDescription}
+            onChange={(event) => setDescription(event.target.value)}
+          />
+
+          <button
+            onClick={(event) => {
+              event.preventDefault();
+              addCourse();
+            }}
+          >
+            add
+          </button>
         </div>
       </div>
     </div>
