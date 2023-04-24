@@ -6,9 +6,9 @@ import firebase from "../firebase";
 function Courses() {
   const [courses, setCourses] = useState([]);
   const [addDescription, setDescription] = useState("");
-  const [addFaculty, setFaculty] = useState("");
-  const [addCourseName, setCourseName] = useState("");
 
+  const [addCourseName, setCourseName] = useState("");
+  const [addFaculty, setFaculty] = useState("");
   const [addStudentCourses, setStudentCourses] = useState([]);
 
   useEffect(() => {
