@@ -31,7 +31,7 @@ function Courses() {
       .add({
         Description: addDescription,
         Faculty: addFaculty,
-        Name: addCourseName,
+        Name: addCourseName
       })
       .then(() => {
         console.log("Course added successfully!");
