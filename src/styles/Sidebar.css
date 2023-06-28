@@ -4,9 +4,11 @@
   left: 0;
   width: 10%;
   height: 92vw;
-  background-color: #f1f1f1;
+  background-color: #d9d9d9;
   padding: 20px;
   margin-top: 5%;
+
+  border-right: 1px solid #000000;
 }
 
 .sidebar ul {
@@ -24,4 +26,17 @@
 
 .sidebar li a:hover {
   background-color: #ddd;
+}
+
+.sidebar2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10%;
+  height: 92vw;
+  background-color: #d9d9d9;
+  padding: 20px;
+  margin-top: 5%;
+
+  border-left: 1px solid #000000;
 }

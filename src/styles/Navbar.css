@@ -10,13 +10,14 @@
   right: 0;
   z-index: 1;
   border-bottom: 1px solid #000000;
-  background-color: #ffff;
+  background-color: #c61616;
   height: 7%;
 }
 
 .navbar ul {
   display: flex;
   list-style: none;
+  margin-right: 180px;
 }
 
 .navbar ul li {

@@ -1,19 +1,23 @@
 import React from "react";
 import "../styles/Home.css";
-import fall from "../assets/fall.mp4";
 
 function Home() {
   return (
     <div className="hero-container">
-      <div className="search-container">
-        <div></div>
-        <input type="text" />
-        <div className="search-container-user" />
-        <div className="search-container-user" />
-        <div className="search-container-user" />
-        <div className="search-container-user" />
-        <div className="search-container-user" />
-        <div className="search-container-user" />
+      <div className="horizontal" />
+      <div className="userName">
+        <h1>SUKA BLYAT</h1>
+        <h3 className="greyColorInfo">about</h3>
+      </div>
+
+      <div className="aboutBox">
+        <p>im ceool guy my name is maz i like berser autism and kanye </p>
+      </div>
+      <div className="userPictureHomePage"></div>
+      <div className="coursesTutorBox">
+        {[...Array(15)].map((_, index) => (
+          <div key={index} className="graySquare"></div>
+        ))}
       </div>
     </div>
   );
